@@ -31,5 +31,40 @@
         </svg>
       </button>
     </div>
-</body>
+
+    <div class="preferences">
+      <div class="preferences__pane">
+        <button class="pane__close-preferences">&times;</button>
+        <h2>Settings</h2>
+
+        <div class="pane__time-settings">
+          <h3>Time (Minutes)</h3>
+          <form action="" class="time-settings__form">
+            <label for="pomodoro">pomodoro</label>
+            <input type="number" name="pomodoro" id="pomodoro" min="5" max="90" value="25">
+            <label for="short-break">short break</label>
+            <input type="number" name="short-break" id="short-break" min="1" max="14" value="5">
+            <label for="long-break">long break</label>
+            <input type="number" name="long-break" id="long-break" min="15" max="60" value="15">
+          </form>
+        </div>
+
+        <div class="pane__font-preference">
+          <h3>Font</h3>
+          <button class="font-preference__kumbh font-preference--active">Aa</button>
+          <button class="font-preference__roboto">Aa</button>
+          <button class="font-preference__space">Aa</button>
+        </div>
+
+        <div class="pane__color-preference">
+          <h3>Color</h3>
+          <button class="color-preference__default color-preference--active"></button>
+          <button class="color-preference__blue"></button>
+          <button class="color-preference__purple"></button>
+        </div>
+      </div>
+    </div>
+
+    <script src="pomodoro.js"></script>
+  </body>
 </html>
