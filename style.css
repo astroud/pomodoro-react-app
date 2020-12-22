@@ -199,6 +199,9 @@ h3 {
 .time-settings__form {
   margin: 18px 24px 24px 23px;
   display: grid;
+  grid-template-columns: 50% 50%;
+  align-items: center;
+  row-gap: 8px;
 }
 
 label {
