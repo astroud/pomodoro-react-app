@@ -193,7 +193,7 @@ h3 {
 
 .pane__time-settings,
 .pane__color-preference {
-  margin-top: 24px;
+  margin-top: 28px;
 }
 
 .time-settings__form {
@@ -344,7 +344,101 @@ input[type="number"]::-webkit-inner-spin-button:active{
     height: 410px;
   }
 
+  .pane__close-preferences {
+    right: 36px;
+    top: 39px;
+    font-size: 28px;
+  }
+
   .pomodoro-app__preferences {
-    margin-top: 63px;
+    margin-top: 144px;
+  }
+
+  .preferences__pane {
+    top: 267px;
+    width: 540px;
+    height: 490px;
+    border-radius: 25px;
+  }
+
+  .preferences__pane h2 {
+    padding: 34px 0 31px 40px;
+    font-size: 28px;
+    line-height: 28px;
+  }
+
+  .time-settings__form {
+    margin: 24px 40px 24px 40px;
+  }
+
+  .pane__font-preference,
+  .pane__color-preference {
+    margin: 0 40px 0 40px;
+  }
+
+  .pane__time-settings h3 {
+    margin: 24px 40px 22px 40px;
+  }
+
+  .pane__time-settings h3,
+  .pane__font-preference h3,
+  .pane__color-preference h3 {
+    text-align: left;
+    font-size: 13px;
+    line-height: 13px;
+    letter-spacing: 5px;
+  }
+
+  .pane__font-preference h3,
+  .pane__color-preference h3 {
+    width: 300px;
+    margin-top: 18px;
+  }
+
+  .font-preference__kumbh,
+  .font-preference__roboto,
+  .font-preference__space,
+  .color-preference__default,
+  .color-preference__blue,
+  .color-preference__purple {
+    margin: 0 8px 0 8px;
+  }
+
+  .font-preference__space,
+  .color-preference__purple {
+    margin: 0 0 0 8px;
+  }
+
+  
+
+
+
+
+
+  .time-settings__form {
+    margin: 18px 40px 24px 40px;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: 12px 48px;
+    column-gap: 22px;
+  }
+  
+  label {
+    grid-row: 1;
+  }
+  
+  input {
+    grid-row: 2;
+  }
+
+}
+
+@media screen and (min-width: 769px) {
+  .preferences__pane {
+    top: 155px;
+  }
+
+  .pomodoro-app__preferences {
+    margin-top: 163px;
   }
 }
