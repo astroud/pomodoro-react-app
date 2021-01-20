@@ -1,21 +1,14 @@
 import './App.css';
+import Header from './components/Header/header'
+import Controls from './components/Controls/controls'
+import TimerDisplay from './components/TimerDisplay/timerdisplay'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="pomodoro-app">
+      <Header title="pomodoro" />
+      <Controls />
+      <TimerDisplay />
     </div>
   );
 }
