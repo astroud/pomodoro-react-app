@@ -113,22 +113,31 @@ h1 {
 }
 
 .timer__display {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* flex-wrap: wrap; */
   height: 89.26%;
   width: 89.26%;
+  padding: 11px;
   border-radius: 90%;
   background: var(--background-timer);
 }
 
-.display__time {
+/* .display__time {
   display: none;
-}
+} */
 
 .display__pause-label {
-  display: none;
+  padding-top: 50%;
+  font-family: var(--font-default);
+  font-weight: bold;
+  font-size: 16px;
+  color: var(--text);
+  line-height: 16px;
+  letter-spacing: 15px;
+  margin-right: -15px;  /* Accounts for extra whitespace letter-spacing introduced */
+  
 }
 
 .pomodoro-app__preferences {

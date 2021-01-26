@@ -24,7 +24,7 @@ function App() {
     <div className="pomodoro-app">
       <Header title="pomodoro" />
       <Controls timerMode={timerMode} setTimerMode={setTimerMode} />
-      <TimerDisplay />
+      <TimerDisplay percentage={16} timeLeft='01:33' />
       <Button type="settings" toggleVisibility={toggleSettingsVisibility} />
       <Settings visible={settingsVisible}
                 toggleSettingsVisibility={toggleSettingsVisibility} 
