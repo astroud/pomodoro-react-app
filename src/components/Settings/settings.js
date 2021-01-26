@@ -1,12 +1,12 @@
 import React from 'react'
 import Button from '../Button/button'
 
-const Settings = ({ visible }) => {
+const Settings = ({ visible, toggleSettingsVisibility }) => {
   if (visible) {
     return (
       <div className="preferences preferences--visible">
       <div className="preferences__pane">
-        <Button type="close" buttonText="×" />
+        <Button type="close" buttonText="×" toggleVisibility={toggleSettingsVisibility} />
         <h2>Settings</h2>
         <form>
           <div className="pane__time-settings">
