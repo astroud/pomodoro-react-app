@@ -9,6 +9,7 @@ import { useState } from 'react';
 
 function App() {
   const [ settingsVisible, setSettingsVisible ] = useState(false)
+  const [ timerMode, setTimerMode ] = useState('pomo')   // options: pomo, short, long
 
   const toggleSettingsVisibility = (event) => {
     setSettingsVisible(!settingsVisible)
@@ -17,7 +18,7 @@ function App() {
   return (
     <div className="pomodoro-app">
       <Header title="pomodoro" />
-      <Controls />
+      <Controls timerMode={timerMode} setTimerMode={setTimerMode} />
       <TimerDisplay />
       <Button type="settings" toggleVisibility={toggleSettingsVisibility} />
       <Settings visible={settingsVisible} toggleSettingsVisibility={toggleSettingsVisibility} />
