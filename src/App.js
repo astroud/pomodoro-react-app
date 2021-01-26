@@ -10,6 +10,11 @@ import { useState } from 'react';
 function App() {
   const [ settingsVisible, setSettingsVisible ] = useState(false)
   const [ timerMode, setTimerMode ] = useState('pomo')   // options: pomo, short, long
+  const [ pomoLength, setPomoLength ] = useState(25)
+  const [ shortLength, setShortLength ] = useState(3)
+  const [ longLength, setLongLength ] = useState(15)
+  const [ fontPref, setFontPref ] = useState('kumbh')         // options: kumbh, roboto, space
+  const [ accentColor, setAccentColor ] = useState('default') // options: default, blue, purple
 
   const toggleSettingsVisibility = (event) => {
     setSettingsVisible(!settingsVisible)
@@ -21,7 +26,20 @@ function App() {
       <Controls timerMode={timerMode} setTimerMode={setTimerMode} />
       <TimerDisplay />
       <Button type="settings" toggleVisibility={toggleSettingsVisibility} />
-      <Settings visible={settingsVisible} toggleSettingsVisibility={toggleSettingsVisibility} />
+      <Settings visible={settingsVisible}
+                toggleSettingsVisibility={toggleSettingsVisibility} 
+                pomoLength={pomoLength}
+                setPomoLength={setPomoLength}
+                shortLength={shortLength}
+                setShortLength={setShortLength}
+                longLength={longLength}
+                setLongLength={setLongLength}
+                fontPref={fontPref}
+                setFontPref={setFontPref}
+                accentColor={accentColor}
+                setAccentColor={setAccentColor}
+                closeSettings={toggleSettingsVisibility}
+                />
     </div>
   );
 }
