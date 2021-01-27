@@ -105,6 +105,7 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-shrink: 0;
   width: 300px;
   height: 300px;
   border-radius: 90%;
@@ -418,10 +419,6 @@ input[type="number"]::-webkit-inner-spin-button:active{
     font-size: 28px;
   }
 
-  .pomodoro-app__preferences {
-    margin-top: 144px;
-  }
-
   .preferences__pane {
     top: 267px;
     width: 540px;
@@ -477,12 +474,6 @@ input[type="number"]::-webkit-inner-spin-button:active{
     margin: 0 0 0 8px;
   }
 
-  
-
-
-
-
-
   .time-settings__form {
     margin: 18px 40px 24px 40px;
     display: grid;
@@ -504,9 +495,5 @@ input[type="number"]::-webkit-inner-spin-button:active{
 @media screen and (min-width: 769px) {
   .preferences__pane {
     top: 155px;
-  }
-
-  .pomodoro-app__preferences {
-    margin-top: 163px;
   }
 }
