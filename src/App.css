@@ -129,11 +129,13 @@ h1 {
   display: none;
 } */
 
-.display__pause-label {
-  padding-top: 50%;
+.display__start-pause {
+  margin-top: 50%;
   font-family: var(--font-default);
   font-weight: bold;
   font-size: 16px;
+  background-color: var(--background-timer);
+  border: 0;
   color: var(--text);
   line-height: 16px;
   letter-spacing: 15px;

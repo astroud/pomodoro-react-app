@@ -1,9 +1,29 @@
 import React from 'react'
 
-const Controls = ({ timerMode, setTimerMode }) => {
+const Controls = ({ timerMode,
+                    setTimerMode,
+                    setSecondsLeft,
+                    pomoLength,
+                    shortLength,
+                    longLength,
+                    setIsActive,
+                    setButtonText
+                  }) => {
 
   const handleModeChange = (event) => {
     setTimerMode(event.target.id)
+    setIsActive(false)
+    setButtonText('START')
+    switch(event.target.id) {
+      case 'short':
+        setSecondsLeft(shortLength * 60)
+        break
+      case 'long':
+        setSecondsLeft(longLength * 60)
+        break
+      default:
+        setSecondsLeft(pomoLength * 60)
+    }
   }
 
   return(
