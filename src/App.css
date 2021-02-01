@@ -62,7 +62,7 @@ h1 {
   background: var(--background-timer);
   border-radius: 31.5px;
   width: 327px;
-  height: 63px;
+  min-height: 63px;
   padding: 8px 6px 8px 6px;
   margin: 45px 0 48px 0;
   z-index: 100;
