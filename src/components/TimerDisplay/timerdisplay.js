@@ -13,8 +13,8 @@ const TimerDisplay = ({ timerMode,
 
   const handleClick = (event) => {
     setIsActive(!isActive)
-    setButtonText( event.target.innerText === 'START'
-                    || event.target.innerText === 'RESUME'
+    setButtonText( buttonText === 'START'
+                    || buttonText === 'RESUME'
                       ? 'PAUSE'
                       : 'RESUME'
                   )
