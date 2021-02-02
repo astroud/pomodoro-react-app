@@ -116,6 +116,11 @@ h1 {
   box-shadow: -50px -50px 100px #272C5A, 50px 50px 100px #121530;
 }
 
+.timer:active {
+  transform: scale(0.98);
+}
+
+
 .timer__display {
   /* display: flex; */
   /* justify-content: center; */
@@ -144,10 +149,6 @@ h1 {
   letter-spacing: 15px;
   margin-right: -15px;  /* Accounts for extra whitespace letter-spacing introduced */
   transition: transform 0.2s ease-in-out;
-}
-
-.display__start-pause:hover {
-  transform: scale(1.3);
 }
 
 .pomodoro-app__preferences {
