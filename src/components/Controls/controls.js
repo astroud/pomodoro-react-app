@@ -33,7 +33,7 @@ const Controls = ({ timerMode,
               name="mode" 
               checked={timerMode === 'pomo'} 
               onChange={handleModeChange} />
-      <label  htmlFor="pomo" className="controls__button" >pomodoro</label>
+      <label  htmlFor="pomo" className="controls__button">pomodoro</label>
 
       <input  type="radio" 
               id="short" 
