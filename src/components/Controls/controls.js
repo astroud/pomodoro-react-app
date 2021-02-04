@@ -1,4 +1,6 @@
 import React from 'react'
+import useSound from 'use-sound'
+import clickSfx from '../../sounds/slide.mp3'
 
 const Controls = ({ timerMode,
                     setTimerMode,
@@ -9,6 +11,8 @@ const Controls = ({ timerMode,
                     setIsActive,
                     setButtonText
                   }) => {
+
+  const [playSfx] = useSound(clickSfx);
 
   const handleModeChange = (event) => {
     setTimerMode(event.target.id)
@@ -31,21 +35,24 @@ const Controls = ({ timerMode,
       <input  type="radio" 
               id="pomo" 
               name="mode" 
-              checked={timerMode === 'pomo'} 
+              checked={timerMode === 'pomo'}
+              onClick={playSfx} 
               onChange={handleModeChange} />
       <label  htmlFor="pomo" className="controls__button" >pomodoro</label>
 
       <input  type="radio" 
               id="short" 
               name="mode" 
-              checked={timerMode === 'short'} 
+              checked={timerMode === 'short'}
+              onClick={playSfx} 
               onChange={handleModeChange} />
       <label htmlFor="short"  className="controls__button">short break</label>
       
       <input  type="radio" 
               id="long" 
               name="mode" 
-              checked={timerMode === 'long'} 
+              checked={timerMode === 'long'}
+              onClick={playSfx} 
               onChange={handleModeChange} />
       <label htmlFor="long"  className="controls__button">long break</label>
     </form>

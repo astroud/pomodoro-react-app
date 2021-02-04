@@ -5,6 +5,8 @@ import TimerDisplay from './components/TimerDisplay/timerdisplay'
 import Button from './components/Button/button'
 import Settings from './components/Settings/settings'
 import { useState, useEffect } from 'react';
+import useSound from 'use-sound'
+import timesUpSfx from './sounds/timesUp.mp3'
 
 
 function App() {
@@ -19,6 +21,8 @@ function App() {
   const [ isActive, setIsActive ] = useState(false)
   const [ buttonText, setButtonText ] = useState('START')
 
+  const [ timesUp ] = useSound(timesUpSfx)
+
   useEffect(() => {
     if(isActive) {
       const interval = setInterval(() => {
@@ -29,12 +33,13 @@ function App() {
         clearInterval(interval)
         setIsActive(false)
         setButtonText('')
+        timesUp()
       }
 
       return () => clearInterval(interval)
     }
     
-  }, [isActive, secondsLeft]);
+  }, [isActive, secondsLeft, timesUp]);
 
 
   const toggleSettingsVisibility = (event) => {

@@ -1,6 +1,9 @@
 import React from 'react'
 import { CircularProgressbarWithChildren, buildStyles } from 'react-circular-progressbar'
 import 'react-circular-progressbar/dist/styles.css'
+import useSound from 'use-sound'
+import startSfx from '../../sounds/startTimer.mp3'
+import pauseSfx from '../../sounds/pauseTimer.mp3'
 
 const TimerDisplay = ({ timerMode,
                         percentage,
@@ -11,7 +14,20 @@ const TimerDisplay = ({ timerMode,
                         setButtonText
                       }) => {
 
+  const [play] = useSound(startSfx, { interrupt: true })
+  const [pause] = useSound(pauseSfx, { interupt: true })
+
   const handleClick = (event) => {
+    if (timeLeft === '0:00') {
+      return null
+    }
+
+    if (isActive) {
+      pause()
+    }
+    else {
+      play()
+    }
     setIsActive(!isActive)
     setButtonText( buttonText === 'START'
                     || buttonText === 'RESUME'
