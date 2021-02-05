@@ -1,4 +1,5 @@
 import React from 'react'
+import MuteToggle from '../MuteToggle/mutetoggle'
 import { CircularProgressbarWithChildren, buildStyles } from 'react-circular-progressbar'
 import 'react-circular-progressbar/dist/styles.css'
 import useSound from 'use-sound'
@@ -11,13 +12,25 @@ const TimerDisplay = ({ timerMode,
                         isActive,
                         setIsActive,
                         buttonText,
-                        setButtonText
+                        setButtonText,
+                        volume,
+                        setVolume
                       }) => {
 
-  const [play] = useSound(startSfx, { interrupt: true })
-  const [pause] = useSound(pauseSfx, { interupt: true })
+  const [play] = useSound(startSfx, {
+                                      interrupt: true,
+                                      volume: volume,
+                                    })
+  const [pause] = useSound(pauseSfx, {
+                                      interupt: true,
+                                      volume: volume,
+                                    })
 
   const handleClick = (event) => {
+    if (event.target.id === 'muteButton') {
+      return null
+    }
+    
     if (timeLeft === '0:00') {
       return null
     }
@@ -66,6 +79,8 @@ const TimerDisplay = ({ timerMode,
             trailColor: 'none',
           })}>
           
+          <MuteToggle volume = {volume}
+                      setVolume = {setVolume} />
           <button className="display__start-pause" onClick={handleClick}>{buttonText}</button>
         </CircularProgressbarWithChildren>
       </div>

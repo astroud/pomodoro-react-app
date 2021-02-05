@@ -21,7 +21,10 @@ function App() {
   const [ isActive, setIsActive ] = useState(false)
   const [ buttonText, setButtonText ] = useState('START')
 
-  const [ timesUp ] = useSound(timesUpSfx)
+  const [ volume, setVolume ] = useState(0.5)
+  const [ timesUp ] = useSound(timesUpSfx, {
+                                volume: volume,
+                              })
 
   useEffect(() => {
     if(isActive) {
@@ -80,6 +83,7 @@ function App() {
         setIsActive={setIsActive}
         buttonText={buttonText}
         setButtonText={setButtonText}
+        volume={volume}
         />
       <TimerDisplay
         timerMode={timerMode}
@@ -89,6 +93,8 @@ function App() {
         setIsActive={setIsActive}
         buttonText={buttonText}
         setButtonText={setButtonText}
+        volume={volume}
+        setVolume={setVolume}
         />
       <Button type="settings" toggleVisibility={toggleSettingsVisibility} />
       <Settings visible={settingsVisible}

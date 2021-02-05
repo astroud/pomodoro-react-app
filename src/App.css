@@ -133,9 +133,18 @@ h1 {
   background: var(--background-timer);
 }
 
-/* .display__time {
-  display: none;
-} */
+button.display__mute {
+  width: 25px;
+  height: 25px;
+  border: 0;
+  background-color: transparent;
+  color: #d7e0ff2f;
+  transition: color 0.3s ease-in-out;
+}
+
+button.display__mute:hover {
+  color: #d7e0ff;
+}
 
 .display__start-pause {
   margin-top: 50%;
