@@ -3,7 +3,7 @@ import React from 'react'
 const muteToggle = ( { volume, setVolume }) => {
   const handleClick = (event) => {
     if (volume === 0) {
-      setVolume(0.5)
+      setVolume(1)
     }
     else {
       setVolume(0)

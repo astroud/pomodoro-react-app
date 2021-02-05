@@ -21,7 +21,7 @@ function App() {
   const [ isActive, setIsActive ] = useState(false)
   const [ buttonText, setButtonText ] = useState('START')
 
-  const [ volume, setVolume ] = useState(0.5)
+  const [ volume, setVolume ] = useState(1)
   const [ timesUp ] = useSound(timesUpSfx, {
                                 volume: volume,
                               })
