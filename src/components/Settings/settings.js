@@ -13,7 +13,9 @@ const Settings = ({ visible,
                     setFontPref,
                     accentColor,
                     setAccentColor,
-                    closeSettings
+                    closeSettings,
+                    setSecondsLeft,
+                    timerMode,
                   }) => {
 
   const colors = {
@@ -42,6 +44,17 @@ const Settings = ({ visible,
 
     styles.setProperty("--font-current", fonts[event.target.font.value])
     styles.setProperty("--accent-color", colors[event.target.color.value])
+
+    switch(timerMode) {
+      case 'short':
+        setSecondsLeft(event.target.shortBreak.value * 60)
+        break
+      case 'long':
+        setSecondsLeft(event.target.longBreak.value * 60)
+        break
+      default:
+        setSecondsLeft(event.target.pomodoro.value * 60)
+    }
   }
 
   if (visible) {

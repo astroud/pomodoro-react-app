@@ -110,6 +110,8 @@ function App() {
                 accentColor={accentColor}
                 setAccentColor={setAccentColor}
                 closeSettings={toggleSettingsVisibility}
+                setSecondsLeft={setSecondsLeft}
+                timerMode={timerMode}
                 />
     </div>
   );
