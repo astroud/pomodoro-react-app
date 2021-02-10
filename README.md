@@ -25,7 +25,7 @@ The solution is meticulous note taking and supplementing the course with self-di
 
 
 ## Background
-The purpose of this project is two-fold: to create an attractive, functional [pomodoro timer](https://en.wikipedia.org/wiki/Pomodoro_Technique) and as an opportunity to implement a React app without guidance. The project started as a Figma design provided by [Frontend Mentor](https://www.frontendmentor.io).
+The purpose of this project is two-fold: to create an attractive, functional [pomodoro timer](https://en.wikipedia.org/wiki/Pomodoro_Technique) and as an opportunity to implement a React app without guidance. The project started as a Figma design provided by [Frontend Mentor](https://www.frontendmentor.io) ([my solution](https://www.frontendmentor.io/solutions/pomodoro-react-app-2gFE6LaFn)).
 
 I initially implemented the design in html/css and vanilla JavaScript, but quickly saw the value in using React to track State and render components. That's why this project uses a single css file instead of [inline styles or CSS-in-JS](https://reactjs.org/docs/faq-styling.html).
 
