@@ -146,6 +146,10 @@ button.display__mute:hover {
   color: #d7e0ff;
 }
 
+button:focus:not(:focus-visible) { 
+  outline: 0; 
+}
+
 .display__start-pause {
   margin-top: 50%;
   font-family: var(--font-default);
