@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300;400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap");
 
 * {
   padding: 0;
@@ -9,25 +9,26 @@
 }
 
 :root {
-  --accent-color: #F87070;
-  --background-body: #1E213F;
-  --text: #D7E0FF;
-  --text-dark: #1E213F;
-  --background-preferences: #FFFFFF;
-  --input-background: #EFF1FA;
+  --accent-color: #f87070;
+  --background-body: #1e213f;
+  --text: #d7e0ff;
+  --text-dark: #1e213f;
+  --background-preferences: #ffffff;
+  --input-background: #eff1fa;
   --background-timer: #161932;
   --settings-heading: #161932;
-  --default-accent: #F87070;
-  --blue-accent: #70F3F8;
-  --purple-accent: #D881F8;
- 
-  --font-current: 'Kumbh Sans', sans-serif;
-  --font-default: 'Kumbh Sans', sans-serif;
-  --font-roboto-slab: 'Roboto Slab', serif;
-  --font-space-mono: 'Space Mono', monospace;
+  --default-accent: #f87070;
+  --blue-accent: #70f3f8;
+  --purple-accent: #d881f8;
+
+  --font-current: "Kumbh Sans", sans-serif;
+  --font-default: "Kumbh Sans", sans-serif;
+  --font-roboto-slab: "Roboto Slab", serif;
+  --font-space-mono: "Space Mono", monospace;
 }
 
-html, body {
+html,
+body {
   height: 100%;
 }
 
@@ -46,7 +47,7 @@ body {
 }
 
 h1 {
-  font-family: 'Kumbh Sans', sans-serif;
+  font-family: "Kumbh Sans", sans-serif;
   color: var(--text);
   text-align: center;
   font-style: normal;
@@ -70,7 +71,7 @@ h1 {
 
 /* hide radio inputs so the labels can be styled */
 /* display: none; will make them unfocusable / no keyboard navigation */
-.controls input[type="radio"] { 
+.controls input[type="radio"] {
   opacity: 0;
   position: fixed;
   width: 0;
@@ -93,6 +94,7 @@ h1 {
   color: var(--text);
   mix-blend-mode: normal;
   opacity: 0.4;
+  cursor: pointer;
 }
 
 .controls input[type="radio"]:checked + label {
@@ -112,14 +114,14 @@ h1 {
   width: 300px;
   height: 300px;
   border-radius: 90%;
-  background: linear-gradient(315deg, #2E325A 0%, #0E112A 100%);
-  box-shadow: -50px -50px 100px #272C5A, 50px 50px 100px #121530;
+  background: linear-gradient(315deg, #2e325a 0%, #0e112a 100%);
+  box-shadow: -50px -50px 100px #272c5a, 50px 50px 100px #121530;
+  cursor: pointer;
 }
 
 .timer:active {
   transform: scale(0.98);
 }
-
 
 .timer__display {
   /* display: flex; */
@@ -140,14 +142,15 @@ button.display__mute {
   background-color: transparent;
   color: #d7e0ff2f;
   transition: color 0.3s ease-in-out;
+  cursor: pointer;
 }
 
 button.display__mute:hover {
   color: #d7e0ff;
 }
 
-button:focus:not(:focus-visible) { 
-  outline: 0; 
+button:focus:not(:focus-visible) {
+  outline: 0;
 }
 
 .display__start-pause {
@@ -160,8 +163,9 @@ button:focus:not(:focus-visible) {
   color: var(--text);
   line-height: 16px;
   letter-spacing: 15px;
-  margin-right: -15px;  /* Accounts for extra whitespace letter-spacing introduced */
+  margin-right: -15px; /* Accounts for extra whitespace letter-spacing introduced */
   transition: transform 0.2s ease-in-out;
+  cursor: pointer;
 }
 
 .pomodoro-app__preferences {
@@ -169,6 +173,7 @@ button:focus:not(:focus-visible) {
   background: none;
   border: 0;
   transition: transform 0.15s ease-in-out;
+  cursor: pointer;
 }
 
 .pomodoro-app__preferences:hover {
@@ -183,13 +188,17 @@ button:focus:not(:focus-visible) {
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 }
 
 @keyframes fade {
-  from {opacity: 0%;}
-  to {opacity: 100%;}
+  from {
+    opacity: 0%;
+  }
+  to {
+    opacity: 100%;
+  }
 }
 
 .preferences--visible {
@@ -208,13 +217,13 @@ button:focus:not(:focus-visible) {
 
   position: relative;
   margin: auto;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   transition: 3.25s all ease-in-out;
 }
 
 .preferences__pane h2 {
   padding: 24px 0 28px 24px;
-  border-bottom: 1px solid #E3E1E1;
+  border-bottom: 1px solid #e3e1e1;
   font-family: var(--font-default);
   font-style: normal;
   font-weight: bold;
@@ -237,6 +246,7 @@ button:focus:not(:focus-visible) {
 
 .pane__close-preferences:hover {
   transform: scale(1.65);
+  cursor: pointer;
 }
 
 h3 {
@@ -292,43 +302,45 @@ input {
   color: var(--text-dark);
 }
 
-input[type="number"]::-webkit-outer-spin-button, 
+input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
   margin-right: 16px;
   -webkit-appearance: none;
-  background: url("data:image/svg+xml,%3Csvg width='14' height='21' viewBox='0 0 14 21' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 6L7 2L13 6' stroke='%231E213F' stroke-opacity='0.25' stroke-width='2'/%3E%3Cpath d='M1 15L7 19L13 15' stroke='%231E213F' stroke-opacity='0.25' stroke-width='2'/%3E%3C/svg%3E%0A") no-repeat center center;
+  background: url("data:image/svg+xml,%3Csvg width='14' height='21' viewBox='0 0 14 21' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 6L7 2L13 6' stroke='%231E213F' stroke-opacity='0.25' stroke-width='2'/%3E%3Cpath d='M1 15L7 19L13 15' stroke='%231E213F' stroke-opacity='0.25' stroke-width='2'/%3E%3C/svg%3E%0A")
+    no-repeat center center;
   height: 21px;
   width: 14px;
-  opacity: .5; /* shows Spin Buttons per default (Chrome >= 39) */
+  opacity: 0.5; /* shows Spin Buttons per default (Chrome >= 39) */
+  cursor: pointer;
 }
 
 input[type="number"]::-webkit-inner-spin-button:hover,
-input[type="number"]::-webkit-inner-spin-button:active{
-    opacity: 1;
+input[type="number"]::-webkit-inner-spin-button:active {
+  opacity: 1;
 }
 
 /* hide radio inputs so the labels can be styled */
 /* display: none; will make them unfocusable / no keyboard navigation */
 .pane__color-preference input[type="radio"],
-.pane__font-preference input[type="radio"] { 
+.pane__font-preference input[type="radio"] {
   opacity: 0;
   position: fixed;
   width: 0;
 }
 
 .pane__color-preference input[type="radio"] + label,
-.pane__font-preference input[type="radio"] + label  {
+.pane__font-preference input[type="radio"] + label {
   opacity: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: transform 0.5s ease-in-out,
-              background-color 0.5s ease-in-out;
+  transition: transform 0.25s ease-in-out, background-color 0.25s ease-in-out;
+  cursor: pointer;
 }
 
 .pane__color-preference input[type="radio"] + label:hover,
 .pane__font-preference input[type="radio"] + label:hover {
-  transform: rotate(360deg) scale(1.1);
+  transform: scale(1.1);
 }
 
 .pane__font-preference,
@@ -340,7 +352,7 @@ input[type="number"]::-webkit-inner-spin-button:active{
   margin: 0 24px 0 24px;
   border-width: 1px 0 1px 0;
   border-style: solid;
-  border-color: #E3E1E1;
+  border-color: #e3e1e1;
 }
 
 .pane__color-preference {
@@ -423,7 +435,7 @@ input[type="number"]::-webkit-inner-spin-button:active{
   justify-content: center;
 }
 
-.pane__apply-preferences{
+.pane__apply-preferences {
   width: 140px;
   height: 53px;
   margin-top: 36px;
@@ -433,8 +445,9 @@ input[type="number"]::-webkit-inner-spin-button:active{
   font-family: Kumbh Sans;
   font-weight: bold;
   font-size: 16px;
-  color: #FFFFFF;
+  color: #ffffff;
   transition: transform 0.15s ease-in-out;
+  cursor: pointer;
 }
 
 .pane__apply-preferences:hover {
@@ -534,15 +547,14 @@ input[type="number"]::-webkit-inner-spin-button:active{
     grid-template-rows: 12px 48px;
     column-gap: 22px;
   }
-  
+
   label {
     grid-row: 1;
   }
-  
+
   input {
     grid-row: 2;
   }
-
 }
 
 @media screen and (min-width: 769px) {
