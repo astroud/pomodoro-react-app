@@ -3,61 +3,65 @@ import MuteToggle from '../MuteToggle/mutetoggle'
 import { CircularProgressbarWithChildren, buildStyles } from 'react-circular-progressbar'
 import 'react-circular-progressbar/dist/styles.css'
 import useSound from 'use-sound'
-import startSfx from '../../sounds/startTimer.mp3'
-import pauseSfx from '../../sounds/pauseTimer.mp3'
 
-const TimerDisplay = ({ timerMode,
-                        percentage,
-                        timeLeft,
-                        isActive,
-                        setIsActive,
-                        buttonText,
-                        setButtonText,
-                        volume,
-                        setVolume
-                      }) => {
+type TimerDisplayProps = {
+  timerMode: string
+	percentage: number
+	timeLeft: string
+	isActive: boolean
+	setIsActive: any
+	buttonText: string
+	setButtonText: any
+	volume: number
+	setVolume: any
+}
+
+
+const TimerDisplay : React.FC<TimerDisplayProps> = (props: TimerDisplayProps) => {
+const startSfx = '/public/sounds/startTimer.mp3';
+const pauseSfx = 'public/sounds/pauseTimer.mp3';
 
   const [play] = useSound(startSfx, {
+                                      volume: props.volume,
                                       interrupt: true,
-                                      volume: volume,
                                     })
   const [pause] = useSound(pauseSfx, {
                                       interupt: true,
-                                      volume: volume,
+                                      volume: props.volume,
                                     })
 
-  const handleClick = (event) => {
+			      const handleClick = (event: any) => {
     if (event.target.id === 'muteButton') {
       return null
     }
     
-    if (timeLeft === '0:00') {
+    if (props.timeLeft === '0:00') {
       return null
     }
 
-    if (isActive) {
+    if (props.isActive) {
       pause()
     }
     else {
       play()
     }
-    setIsActive(!isActive)
-    setButtonText( buttonText === 'START'
-                    || buttonText === 'RESUME'
+    props.setIsActive(!props.isActive)
+    props.setButtonText( props.buttonText === 'START'
+                    || props.buttonText === 'RESUME'
                       ? 'PAUSE'
                       : 'RESUME'
                   )
   }
 
-  let timesUpMsg = timerMode === 'pomo'
+  let timesUpMsg = props.timerMode === 'pomo'
                   ? 'time for a break'
                   : 'back to work!'
 
-  let timeText = timeLeft === '0:00'
+  let timeText = props.timeLeft === '0:00'
                   ? timesUpMsg
-                  : timeLeft
+                  : props.timeLeft
 
-  let textSize = timeLeft === '0:00'
+  let textSize = props.timeLeft === '0:00'
                   ? '12px'
                   : '28px'
 
@@ -65,7 +69,7 @@ const TimerDisplay = ({ timerMode,
     <div className="timer" onClick={handleClick}>
       <div className="timer__display">
         <CircularProgressbarWithChildren
-          value={percentage}
+          value={props.percentage}
           text={timeText}
           strokeWidth={4}
           styles={buildStyles({
@@ -75,13 +79,12 @@ const TimerDisplay = ({ timerMode,
             pathColor: 'var(--accent-color)',
             textColor: 'var(--text)',
             textSize: textSize,
-            fontFamily: 'var(--font-current)',
             trailColor: 'none',
           })}>
           
-          <MuteToggle volume = {volume}
-                      setVolume = {setVolume} />
-          <button className="display__start-pause" onClick={handleClick}>{buttonText}</button>
+          <MuteToggle volume = {props.volume}
+                      setVolume = {props.setVolume} />
+          <button className="display__start-pause" onClick={handleClick}>{props.buttonText}</button>
         </CircularProgressbarWithChildren>
       </div>
     </div>

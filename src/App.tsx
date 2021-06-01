@@ -6,7 +6,6 @@ import Button from './components/Button/button'
 import Settings from './components/Settings/settings'
 import { useState, useEffect } from 'react';
 import useSound from 'use-sound'
-import timesUpSfx from './sounds/timesUp.mp3'
 
 
 function App() {
@@ -22,6 +21,7 @@ function App() {
   const [ buttonText, setButtonText ] = useState('START')
 
   const [ volume, setVolume ] = useState(1)
+  const timesUpSfx = '/public/sounds/timesUp.mp3'
   const [ timesUp ] = useSound(timesUpSfx, {
                                 volume: volume,
                               })
@@ -45,11 +45,12 @@ function App() {
   }, [isActive, secondsLeft, timesUp]);
 
 
-  const toggleSettingsVisibility = (event) => {
+	const toggleSettingsVisibility = (event: any) => {
+		console.log(event);
     setSettingsVisible(!settingsVisible)
   }
 
-  const formatTimeLeft = (seconds) => {
+	const formatTimeLeft = (seconds: number) => {
     return(`${Math.floor(seconds / 60)}:${
             (seconds % 60 > 9)
               ? seconds % 60
@@ -57,7 +58,7 @@ function App() {
           }`)
   }
 
-  const calcPercentage = () => {
+	const calcPercentage = (): number => {
     if(timerMode === 'pomo') {
       return((secondsLeft / (pomoLength * 60)) * 100)
     }
@@ -68,6 +69,7 @@ function App() {
       return((secondsLeft / (longLength * 60)) * 100)
     }
     
+		return 0;
   }
 
   return (
@@ -81,7 +83,6 @@ function App() {
         shortLength={shortLength}
         longLength={longLength}
         setIsActive={setIsActive}
-        buttonText={buttonText}
         setButtonText={setButtonText}
         volume={volume}
         />

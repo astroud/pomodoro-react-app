@@ -1,6 +1,5 @@
-import React from 'react'
 import useSound from 'use-sound'
-import clickSfx from '../../sounds/slide.mp3'
+const clickSfx = '/public/sounds/slide.mp3'
 
 const Controls = ({ timerMode,
                     setTimerMode,
