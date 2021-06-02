@@ -175,7 +175,7 @@ const Settings: React.FC<SettingsProps> = (props: SettingsProps) => {
                 className="color-preference__purple"
               ></label>
             </div>
-            <Button buttonType="apply" buttonText="Apply" toggleVisibility="" />
+            <Button buttonType="apply" buttonText="Apply" />
           </form>
         </div>
       </div>

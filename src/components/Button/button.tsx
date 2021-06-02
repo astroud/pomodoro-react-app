@@ -1,9 +1,9 @@
-import React from "react";
+import React, { MouseEventHandler } from "react";
 
 type ButtonProps = {
   buttonType: string;
   buttonText?: string;
-  toggleVisibility: any;
+  toggleVisibility?: MouseEventHandler<HTMLElement>;
 };
 
 const Button: React.FC<ButtonProps> = (props: ButtonProps) => {

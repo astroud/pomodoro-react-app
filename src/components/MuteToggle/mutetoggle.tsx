@@ -6,7 +6,7 @@ type MuteToggleProps = {
 };
 
 const muteToggle: React.FC<MuteToggleProps> = (props: MuteToggleProps) => {
-  const handleClick = (event: any) => {
+  const handleClick = () => {
     if (props.volume === 0) {
       props.setVolume(1);
     } else {

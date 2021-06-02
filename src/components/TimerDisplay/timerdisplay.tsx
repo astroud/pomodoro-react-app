@@ -19,12 +19,11 @@ type TimerDisplayProps = {
   setVolume: any;
 };
 
+const startSfx = "/sounds/startTimer.mp3";
+const pauseSfx = "/sounds/pauseTimer.mp3";
 const TimerDisplay: React.FC<TimerDisplayProps> = (
   props: TimerDisplayProps
 ) => {
-  const startSfx = "/public/sounds/startTimer.mp3";
-  const pauseSfx = "public/sounds/pauseTimer.mp3";
-
   const [play] = useSound(startSfx, {
     volume: props.volume,
     interrupt: true,

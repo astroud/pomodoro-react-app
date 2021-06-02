@@ -1,4 +1,3 @@
-import { MouseEvent } from "react";
 import "./App.css";
 import Header from "./components/Header/header";
 import Controls from "./components/Controls/controls";
@@ -21,7 +20,7 @@ function App() {
   const [buttonText, setButtonText] = useState("START");
 
   const [volume, setVolume] = useState(1);
-  const timesUpSfx = "/public/sounds/timesUp.mp3";
+  const timesUpSfx = "/sounds/timesUp.mp3";
   const [timesUp] = useSound(timesUpSfx, {
     volume: volume,
   });
@@ -43,9 +42,7 @@ function App() {
     }
   }, [isActive, secondsLeft, timesUp]);
 
-  const toggleSettingsVisibility = (event: MouseEvent<HTMLButtonElement>) => {
-    console.log(event);
-    console.log(typeof event);
+  const toggleSettingsVisibility = () => {
     setSettingsVisible(!settingsVisible);
   };
 

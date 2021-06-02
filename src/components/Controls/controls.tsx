@@ -1,7 +1,7 @@
 import React, { MouseEventHandler } from "react";
 import useSound from "use-sound";
 
-const clickSfx = "/public/sounds/slide.mp3";
+const clickSfx = "/sounds/slide.mp3";
 
 type ControlProps = {
   timerMode: string;
