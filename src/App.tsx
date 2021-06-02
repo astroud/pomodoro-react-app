@@ -97,7 +97,7 @@ function App() {
         volume={volume}
         setVolume={setVolume}
         />
-      <Button type="settings" toggleVisibility={toggleSettingsVisibility} />
+      <Button buttonType="settings" toggleVisibility={toggleSettingsVisibility} />
       <Settings visible={settingsVisible}
                 toggleSettingsVisibility={toggleSettingsVisibility} 
                 pomoLength={pomoLength}

@@ -1,16 +1,21 @@
 import React from 'react'
 
-const muteToggle = ( { volume, setVolume }) => {
-  const handleClick = (event) => {
-    if (volume === 0) {
-      setVolume(1)
+type MuteToggleProps = {
+	volume: number
+	setVolume: any
+}
+
+const muteToggle: React.FC<MuteToggleProps> = (props: MuteToggleProps) => {
+    const handleClick = (event: any) => {
+    if (props.volume === 0) {
+      props.setVolume(1)
     }
     else {
-      setVolume(0)
+      props.setVolume(0)
     }
   }
 
-  if (volume === 0) {
+  if (props.volume === 0) {
     return(
             <button className="display__mute"
                     id="muteButton"
