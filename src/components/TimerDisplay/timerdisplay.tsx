@@ -18,54 +18,47 @@ type TimerDisplayProps = {
 
 
 const TimerDisplay : React.FC<TimerDisplayProps> = (props: TimerDisplayProps) => {
-const startSfx = '/public/sounds/startTimer.mp3';
-const pauseSfx = 'public/sounds/pauseTimer.mp3';
+    const startSfx = '/public/sounds/startTimer.mp3';
+    const pauseSfx = 'public/sounds/pauseTimer.mp3';
 
-  const [play] = useSound(startSfx, {
-                                      volume: props.volume,
-                                      interrupt: true,
-                                    })
-  const [pause] = useSound(pauseSfx, {
-                                      interupt: true,
-                                      volume: props.volume,
-                                    })
+    const [play] = useSound(startSfx, {
+	volume: props.volume,
+        interrupt: true,
+    })
+    const [pause] = useSound(pauseSfx, {
+        interupt: true,
+        volume: props.volume,
+    })
 
-			      const handleClick = (event: any) => {
-    if (event.target.id === 'muteButton') {
-      return null
-    }
+    const handleClick = (event: any) => {
+	if (event.target.id === 'muteButton') {
+	    return null
+	}
     
-    if (props.timeLeft === '0:00') {
-      return null
-    }
+	if (props.timeLeft === '0:00') {
+	    return null
+	}
 
-    if (props.isActive) {
-      pause()
-    }
-    else {
-      play()
-    }
-    props.setIsActive(!props.isActive)
-    props.setButtonText( props.buttonText === 'START'
-                    || props.buttonText === 'RESUME'
-                      ? 'PAUSE'
-                      : 'RESUME'
-                  )
-  }
+	if (props.isActive) {
+	    pause()
+	}
+	else {
+	    play()
+	}
+	props.setIsActive(!props.isActive)
+	props.setButtonText( props.buttonText === 'START'
+            || props.buttonText === 'RESUME' ? 'PAUSE' : 'RESUME')
+	}
 
-  let timesUpMsg = props.timerMode === 'pomo'
-                  ? 'time for a break'
-                  : 'back to work!'
+	const timesUpMsg = props.timerMode === 'pomo' ? 'time for a break'
+            : 'back to work!'
 
-  let timeText = props.timeLeft === '0:00'
-                  ? timesUpMsg
-                  : props.timeLeft
+	const timeText = props.timeLeft === '0:00' ? timesUpMsg
+            : props.timeLeft
 
-  let textSize = props.timeLeft === '0:00'
-                  ? '12px'
-                  : '28px'
+	const textSize = props.timeLeft === '0:00' ? '12px' : '28px'
 
-  return(
+    return(
     <div className="timer" onClick={handleClick}>
       <div className="timer__display">
         <CircularProgressbarWithChildren

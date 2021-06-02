@@ -20,12 +20,12 @@ type SettingsProps = {
 }
 
 const Settings: React.FC<SettingsProps> = (props: SettingsProps) => {
-    let fonts = new Map()
+    const fonts = new Map()
     fonts.set('kumbh', `'Kumbh Sans', sans-serif`)
     fonts.set('roboto', `'Roboto Slab', serif`)
     fonts.set('space', `'Space Mono', monospace`)
 
-    let colors = new Map() 
+    const colors = new Map() 
     colors.set('default', '#F87070')
     colors.set('blue', '#70F3F8')
     colors.set('purple', '#D881F8')

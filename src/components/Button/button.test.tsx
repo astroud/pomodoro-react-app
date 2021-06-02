@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react'
 import Controls from './button'
 
 it('renders a close button to close settings', () => {
-  render(<Controls type="close" buttonText="×" />)
+	render(<Controls buttonType="close" buttonText="×" toggleVisibility=true />)
   const closeButton = screen.getByText(/×/i)
   expect(closeButton).toBeInTheDocument()
 })

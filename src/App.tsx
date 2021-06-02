@@ -1,3 +1,4 @@
+import { MouseEvent } from 'react';
 import './App.css';
 import Header from './components/Header/header'
 import Controls from './components/Controls/controls'
@@ -45,13 +46,14 @@ function App() {
   }, [isActive, secondsLeft, timesUp]);
 
 
-	const toggleSettingsVisibility = (event: any) => {
-		console.log(event);
-    setSettingsVisible(!settingsVisible)
+  const toggleSettingsVisibility = (event: MouseEvent<HTMLButtonElement>) => {
+	console.log(event);
+	console.log(typeof event);
+	setSettingsVisible(!settingsVisible)
   }
 
-	const formatTimeLeft = (seconds: number) => {
-    return(`${Math.floor(seconds / 60)}:${
+  const formatTimeLeft = (seconds: number) => {
+  return(`${Math.floor(seconds / 60)}:${
             (seconds % 60 > 9)
               ? seconds % 60
               : '0' + seconds % 60
