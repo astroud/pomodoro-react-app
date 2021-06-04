@@ -5,10 +5,8 @@ import {
   Cluster,
   ContainerImage,
   FargateTaskDefinition,
-  Secret,
 } from "@aws-cdk/aws-ecs";
 import { LogGroup, RetentionDays } from "@aws-cdk/aws-logs";
-import { Secret as smSecret } from "@aws-cdk/aws-secretsmanager";
 import { ApplicationLoadBalancedFargateService } from "@aws-cdk/aws-ecs-patterns";
 import { ApplicationProtocol } from "@aws-cdk/aws-elasticloadbalancingv2";
 import { DockerImageAsset } from "@aws-cdk/aws-ecr-assets";
