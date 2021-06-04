@@ -9,10 +9,6 @@ import {
 import { LogGroup, RetentionDays } from "@aws-cdk/aws-logs";
 import { ApplicationLoadBalancedFargateService } from "@aws-cdk/aws-ecs-patterns";
 import { ApplicationProtocol } from "@aws-cdk/aws-elasticloadbalancingv2";
-import { DockerImageAsset } from "@aws-cdk/aws-ecr-assets";
-import { Repository } from "@aws-cdk/aws-ecr";
-import * as path from "path";
-import * as ecrDeploy from "cdk-ecr-deployment";
 
 // PomodoroStackProps are required properties to create a new Pomodoro App
 export interface PomodoroStackProps extends cdk.StackProps {
@@ -58,40 +54,12 @@ export class PomodoroStack extends cdk.Stack {
       }
     );
 
-    // Create an ECR repository. A repository acts like a namespace to hold
-    // images that adhere to the OCI image specification
-    const repository = new Repository(this, `${props.prefix}-pomodoroRepo`, {
-      repositoryName: "pomodoro",
-      removalPolicy: cdk.RemovalPolicy.DESTROY,
-    });
-
-    // Build an image asset from the Dockerfile
-    const image = new DockerImageAsset(this, `${props.prefix}-pomodoroImage`, {
-      directory: path.join(__dirname, "..", ".."),
-    });
-
-    // Define the ECR image uri and tag for the image inside the ECR Repository
-    const deployRepository = `${repository.repositoryUri}:${props.repositoryTag}`;
-    new ecrDeploy.ECRDeployment(this, `${props.prefix}-deployDockerImage`, {
-      src: new ecrDeploy.DockerImageName(image.imageUri),
-      dest: new ecrDeploy.DockerImageName(deployRepository),
-    });
-
-    const destinationRepo = Repository.fromRepositoryName(
-      this,
-      `${props.prefix}-destinationRepo`,
-      repository.repositoryName
-    );
-
     // Create the dashboard container for the ECS service using the repository
     // name and tag we created earlier
     const pomodoroContainer = pomodoroTask.addContainer(
       `${props.prefix}-pomodoro`,
       {
-        image: ContainerImage.fromEcrRepository(
-          destinationRepo,
-          props.repositoryTag
-        ),
+        image: ContainerImage.fromRegistry("chrisdontmiss/pomodoro:1.0.0"),
         logging: new AwsLogDriver({
           streamPrefix: `${props.prefix}-pomodoro`,
           logGroup,
